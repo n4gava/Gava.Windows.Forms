@@ -1,5 +1,7 @@
 @echo Off
  
+$nugetExe = "./../src/NuGet.exe";
+
 set version=1.0.0
 if not "%PackageVersion%" == "" (
    set version=%PackageVersion%
@@ -16,4 +18,6 @@ mkdir Build
 mkdir Build\lib
 mkdir Build\lib\net40
 
-%nuget% pack "src\Gava.Windows.Forms.nuspec" -NoPackageAnalysis -OutputDirectory $buildArtifactsDirectory
+exec { 
+    .$nugetExe pack "src\Gava.Windows.Forms.nuspec" -NoPackageAnalysis -OutputDirectory $buildArtifactsDirectory 
+}
