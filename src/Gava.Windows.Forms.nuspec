@@ -16,7 +16,7 @@
     <tags>windows forms borderless theme design</tags>
   </metadata>
   <files>
-	<file src="Gava.Windows.Forms.Example\bin\$configuration$\Gava.Windows.Forms.dll" target="lib\net40\" />
-	<file src="Gava.Windows.Forms.Example\bin\$configuration$\Gava.Windows.Themes.dll" target="lib\net40\" />
+	<file src="Gava.Windows.Forms.Example\bin\Release\Gava.Windows.Forms.dll" target="lib\net40\" />
+	<file src="Gava.Windows.Forms.Example\bin\Release\Gava.Windows.Themes.dll" target="lib\net40\" />
   </files>
 </package>
