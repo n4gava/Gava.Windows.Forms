@@ -9,7 +9,7 @@ if "%nuget%" == "" (
 )
 
 
-%WINDIR%\Microsoft.NET\Framework\v4.0.30319\msbuild src\Gava.Windows.Forms.sln /p:Configuration=Release /p:Platform="Any CPU"
+%MsBuildExe%\msbuild Gava.Windows.Forms.sln /p:Configuration=Release /p:Platform="Any CPU"
 
 mkdir Build
 mkdir Build\lib
