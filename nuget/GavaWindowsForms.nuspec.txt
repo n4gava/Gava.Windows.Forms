@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>GavaWindowsForms</id>
+    <version>$version$</version>
+    <title>Gava Windows Forms</title>
+    <authors>Guilherme Gavazzoni</authors>
+    <owners>Guilherme Gavazzoni</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/n4gava/Gava.Windows.Forms</projectUrl>
+    <iconUrl>https://cdn4.iconfinder.com/data/icons/rcons-application/32/application_form-512.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Gava Windows Forms.</description>
+    <releaseNotes></releaseNotes>
+    <copyright>(C) 2007-2017 Guilherme Gavazzoni</copyright>
+    <tags>windows forms borderless theme design</tags>
+  </metadata>
+  <files>
+	<file src="Gava.Windows.Forms\bin\$configuration$\Gava.Windows.Forms.dll" target="lib\net40\" />
+	<file src="Gava.Windows.Forms\bin\$configuration$\Gava.Windows.Themes.dll" target="lib\net40\" />
+  </files>
+</package>
