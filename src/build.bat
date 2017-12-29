@@ -16,4 +16,4 @@ mkdir Build
 mkdir Build\lib
 mkdir Build\lib\net40
 
-%nuget% pack "src\Terrarium.Sdk.nuspec"
+%nuget% pack "src\Gava.Windows.Forms.nuspec" -NoPackageAnalysis -OutputDirectory $buildArtifactsDirectory
