@@ -19,4 +19,4 @@ mkdir Build\lib
 mkdir Build\lib\net40
 
 
-src\NuGet.exe pack "src\Gava.Windows.Forms.nuspec" -NoPackageAnalysis -OutputDirectory $buildArtifactsDirectory 
+src\NuGet.exe pack "src\Gava.Windows.Forms.nuspec" -NoPackageAnalysis -verbosity detailed -o Build -Version %version% -p Configuration="%config%"
