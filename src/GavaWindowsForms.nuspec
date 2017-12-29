@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>GavaWindowsForms</id>
+    <id>Gava.Windows.Forms</id>
     <version>$version$</version>
     <title>Gava Windows Forms</title>
     <authors>Guilherme Gavazzoni</authors>
