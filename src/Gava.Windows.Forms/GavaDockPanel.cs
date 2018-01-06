@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Gava.Windows.Forms
 {
-    public class GavaTransparentPanel : GavaPanel
+    public class GavaDockPanel : DockPanel
     {
         protected override void WndProc(ref Message m)
         {

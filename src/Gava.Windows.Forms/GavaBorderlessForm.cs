@@ -135,8 +135,9 @@ namespace Gava.Windows.Forms
             bool onBottom = clientPoint.Y > Height - RESIZE_HANDLE_SIZE;
             bool onTop = clientPoint.Y < ( RESIZE_HANDLE_SIZE - 4);
             bool onHeader = clientPoint.Y < HeaderHeight;
+            bool onRightBottom = ((clientPoint.X > Width - (RESIZE_HANDLE_SIZE + 5)) && (clientPoint.Y > Height - (RESIZE_HANDLE_SIZE + 5)));
 
-            if (onBottom && onRight)
+            if (onRightBottom)
                 msg.Result = (IntPtr)HitTestValues.HTBOTTOMRIGHT;
             else if (onBottom && onLeft)
                 msg.Result = (IntPtr)HitTestValues.HTBOTTOMLEFT;

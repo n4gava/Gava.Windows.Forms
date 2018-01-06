@@ -7,17 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
 
 namespace Gava.Windows.Forms.Example
 {
-    public partial class Form1 : GavaBaseForm
+    public partial class DockPanelExample : GavaDockContent
     {
-        public Form1()
+        public DockPanelExample()
         {
             InitializeComponent();
-
         }
-
     }
 }

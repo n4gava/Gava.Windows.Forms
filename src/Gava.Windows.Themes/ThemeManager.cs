@@ -19,17 +19,15 @@ namespace Gava.Windows.Themes
 
         public ThemeManager()
         {
-            LoadThemes();
+            LoadDefaultTheme();
         }
 
-        public void LoadThemes()
+        public virtual void LoadDefaultTheme()
         {
-            // Load all themes
-            // TODO: load themes from xml files
             Themes = new List<Theme>();
 
             Theme lightTheme = new Theme();
-            lightTheme.ThemeName = "Light Theme";
+            lightTheme.ThemeName = "Default Theme";
             lightTheme.WindowTheme.BackColor = Color.FromArgb(41, 57, 85);
             lightTheme.WindowTheme.HeaderBackColor = Color.FromArgb(214, 219, 233);
             lightTheme.WindowTheme.HeaderHeight = 30;
@@ -43,9 +41,35 @@ namespace Gava.Windows.Themes
             lightTheme.WindowTheme.ButtonDownBackColor = Color.FromArgb(255, 232, 166);
             lightTheme.WindowTheme.ButtonDownBorderColor = Color.FromArgb(229, 195, 101);
 
+            lightTheme.ButtonFormTheme.BackColor = Color.FromArgb(217, 218, 222);
+            lightTheme.ButtonFormTheme.ForeColor = Color.FromArgb(73, 80, 87);
+            lightTheme.ButtonFormTheme.DisabledBackColor = Color.FromArgb(222, 223, 226);
+            lightTheme.ButtonFormTheme.DisabledForeColor = Color.FromArgb(159, 167, 174);
+            lightTheme.ButtonFormTheme.MouseOverBackColor = Color.FromArgb(195, 196, 199);
+            lightTheme.ButtonFormTheme.MouseDownColor = Color.FromArgb(213, 213, 215);
+            lightTheme.ButtonFormTheme.BorderSize = 1;
+            lightTheme.ButtonFormTheme.BorderColor = Color.FromArgb(204, 205, 210);
+
+            lightTheme.ButtonMainTheme.BackColor = Color.FromArgb(37, 138, 228);
+            lightTheme.ButtonMainTheme.ForeColor = Color.White;
+            lightTheme.ButtonMainTheme.DisabledBackColor = Color.FromArgb(166, 197, 255);
+            lightTheme.ButtonMainTheme.DisabledForeColor = Color.White;
+            lightTheme.ButtonMainTheme.MouseOverBackColor = Color.FromArgb(33, 124, 205);
+            lightTheme.ButtonMainTheme.MouseDownColor = Color.FromArgb(133, 177, 216);
+            lightTheme.ButtonMainTheme.BorderSize = 0;
+            lightTheme.ButtonMainTheme.BorderColor = Color.FromArgb(37, 138, 228);
+
+            lightTheme.ButtonLabelTheme.BackColor = Color.White;
+            lightTheme.ButtonLabelTheme.ForeColor = Color.FromArgb(73, 80, 87);
+            lightTheme.ButtonLabelTheme.DisabledBackColor = Color.White;
+            lightTheme.ButtonLabelTheme.DisabledForeColor = Color.Black;
+            lightTheme.ButtonLabelTheme.MouseOverBackColor = Color.FromArgb(229, 229, 229);
+            lightTheme.ButtonLabelTheme.MouseDownColor = Color.FromArgb(229, 229, 229);
+            lightTheme.ButtonLabelTheme.BorderSize = 0;
+            lightTheme.ButtonLabelTheme.BorderColor = Color.White;
+
             Themes.Add(lightTheme);
-            // TODO: save selected theme
-            CurrentTheme = Themes.First();
+            CurrentTheme = lightTheme;
         }
     }
 }

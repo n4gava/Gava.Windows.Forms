@@ -13,9 +13,9 @@ namespace Gava.Windows.Forms
     {
         private GavaTransparentPanel _headerPanel = new GavaTransparentPanel();
         private GavaTransparentPanel _clientArea = new GavaTransparentPanel();
-        private GavaWindowButton _buttonClose = new GavaWindowButton();
-        private GavaWindowButton _buttonMinimize = new GavaWindowButton();
-        private GavaWindowButton _buttonMaximize = new GavaWindowButton();
+        private GavaCloseWindowButton _buttonClose = new GavaCloseWindowButton();
+        private GavaMinimizeWindowButton _buttonMinimize = new GavaMinimizeWindowButton();
+        private GavaMaximizeWindowButton _buttonMaximize = new GavaMaximizeWindowButton();
         private GavaTransparentPanel _panelIcon = new GavaTransparentPanel();
         private GavaTransparentPictureBox _icon = new GavaTransparentPictureBox();
         private GavaTransparentLabel _titleText = new GavaTransparentLabel();
@@ -57,17 +57,14 @@ namespace Gava.Windows.Forms
 
             _buttonMinimize.Dock = DockStyle.Right;
             _buttonMinimize.Size = buttonsSize;
-            _buttonMinimize.WindowButtonType = EWindowButtonType.MinimizeButton;
             _buttonMinimize.TextAlign = ContentAlignment.MiddleCenter;
 
             _buttonMaximize.Dock = DockStyle.Right;
             _buttonMaximize.Size = buttonsSize;
-            _buttonMaximize.WindowButtonType = EWindowButtonType.MaximizeButton;
             _buttonMaximize.TextAlign = ContentAlignment.MiddleCenter;
 
             _buttonClose.Dock = DockStyle.Right;
             _buttonClose.Size = buttonsSize;
-            _buttonClose.WindowButtonType = EWindowButtonType.CloseButton;
             _buttonClose.TextAlign = ContentAlignment.MiddleCenter;
 
             _headerPanel.Controls.Add(_buttonMinimize);
@@ -112,10 +109,12 @@ namespace Gava.Windows.Forms
             if (!DesignMode)
             {
                 InitializeComponent();
+                
                 foreach (Control control in this.Controls)
                 {
                     control.Location = new Point(control.Location.X, control.Location.Y + ThemeManager.Instance.CurrentTheme.WindowTheme.HeaderHeight);
                 }
+                
             }
         }
 

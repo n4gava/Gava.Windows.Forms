@@ -10,13 +10,6 @@ using System.Windows.Forms;
 
 namespace Gava.Windows.Forms
 {
-    public enum EWindowButtonType
-    {
-        CloseButton,
-        MinimizeButton,
-        MaximizeButton
-    }
-
     enum MouseState
     {
         Normal,
@@ -28,7 +21,6 @@ namespace Gava.Windows.Forms
     {
 
         private Form _form;
-        private EWindowButtonType _windowButtonType;
         private MouseState _currentMouseState;
 
         public static Color ActiveTextColor
@@ -72,16 +64,6 @@ namespace Gava.Windows.Forms
         }
 
 
-        public EWindowButtonType WindowButtonType
-        {
-            get { return _windowButtonType; }
-            set
-            {
-                _windowButtonType = value;
-                UpdateText();
-            }
-        }
-
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public override string Text
         {
@@ -99,14 +81,13 @@ namespace Gava.Windows.Forms
 
         public GavaWindowButton()
         {
-            WindowButtonType = EWindowButtonType.CloseButton;
             SetFont();
             MouseEnter += (s, e) => SetLabelColors((Control)s, MouseState.Hover);
             MouseLeave += (s, e) => SetLabelColors((Control)s, MouseState.Normal);
             MouseDown += (s, e) => SetLabelColors((Control)s, MouseState.Down);
         }
 
-        private Form Form
+        public Form Form
         {
             get
             {
@@ -122,32 +103,15 @@ namespace Gava.Windows.Forms
         {
             _form = this.FindForm();
 
-            _form.SizeChanged += (obj, e) =>
-            {
-                if (_windowButtonType == EWindowButtonType.MaximizeButton)
-                    Text = _form.WindowState == FormWindowState.Maximized ? "2" : "1";
-            };
+            if (_form != null)
+                OnFormLoaded();
+
+
         }
 
-
-        protected override void OnMouseClick(MouseEventArgs e)
+        public virtual void OnFormLoaded()
         {
-            base.OnMouseClick(e);
 
-            switch (_windowButtonType)
-            {
-                case EWindowButtonType.CloseButton:
-                    Form.Close();
-                    break;
-                case EWindowButtonType.MinimizeButton:
-                    Form.WindowState = FormWindowState.Minimized;
-                    break;
-                case EWindowButtonType.MaximizeButton:
-                    Form.WindowState = _form.WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
-                    break;
-                default:
-                    break;
-            }
         }
 
 
@@ -161,25 +125,7 @@ namespace Gava.Windows.Forms
             base.Font = new Font("Marlett", 8.5f);
             base.ForeColor = ActiveTextColor;
         }
-
-        private void UpdateText()
-        {
-            switch (_windowButtonType)
-            {
-                case EWindowButtonType.CloseButton:
-                    base.Text = "r";
-                    break;
-                case EWindowButtonType.MinimizeButton:
-                    base.Text = "0";
-                    break;
-                case EWindowButtonType.MaximizeButton:
-                    base.Text = "1";
-                    break;
-                default:
-                    break;
-            }
-        }
-
+        
         private void SetLabelColors(Control control, MouseState state)
         {
             _currentMouseState = state;

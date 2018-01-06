@@ -11,14 +11,9 @@ namespace Gava.Windows.Forms
     {
         protected override void WndProc(ref Message m)
         {
-            switch (m.Msg)
+            if (!TransparentControl.WndProc(DesignMode, ref m))
             {
-                case (int)WindowMessages.WM_NCHITTEST:
-                    m.Result = (IntPtr)HitTestValues.HTTRANSPARENT;
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
+                base.WndProc(ref m);
             }
         }
     }
